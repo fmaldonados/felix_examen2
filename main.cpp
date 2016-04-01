@@ -38,6 +38,7 @@ int main(int argc, char const *argv[]){
 	attron(A_BOLD);
 
 	attron(COLOR_PAIR(4));
+	mvprintw(0,0,"%i",friendList.size());
 	mvprintw(move_this_y_1-2,(width-strlen(".-*-.-*-.-*MENU.-*-.-*-.-*"))/2,".-*-.-*-.-*MENU.-*-.-*-.-*");
 	attroff(COLOR_PAIR(4));
 	attron(COLOR_PAIR(3));
