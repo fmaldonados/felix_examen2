@@ -192,8 +192,9 @@ int main(int argc, char const *argv[]){
 
 			Person persona;
 			persona.setName(nombre);
-
 			int position = friendList.find(persona);
+			mvprintw(0,0,"%i", position);
+			getch();
 			if(position != -1){
 				friendList.erase(position);
 			}

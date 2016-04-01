@@ -63,9 +63,10 @@ int List::find(Person persona){
 	Node* temp= head;
 	int cont=0;
 	bool esta=false;
-	while(temp->hasNext()){
-		if((temp->getValue()).getName() == persona.getName()){
-			break;
+	bool salir=false;
+	while(!salir){
+		if(strcmp((temp->getValue()).getName(),persona.getName())){
+			salir= true;
 			esta=true;
 		}else{
 			cont++;
