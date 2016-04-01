@@ -65,16 +65,17 @@ int List::find(Person persona){
 	bool esta=false;
 	bool salir=false;
 	while(!salir){
-		if(strcmp((temp->getValue()).getName(),persona.getName())){
+		if(!strcmp((temp->getValue()).getName(),persona.getName())){
 			salir= true;
 			esta=true;
 		}else{
+			temp=temp->getNext();
 			cont++;
 		}
 	}
 	
 	if(esta){
-		return cont;
+		return cont-1;
 	}else{
 		return -1;
 	}
