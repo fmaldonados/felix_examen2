@@ -19,7 +19,7 @@ Person List::getHead(){
 void List::insert(int posicion, Person persona){
 	Node* temp= head;
 	
-	for(int i=0; i<posicion;i++){
+	for(int i=0; i<=posicion;i++){
 		if(temp->hasNext()){
 			temp=temp->getNext();
 		}else{
@@ -28,20 +28,27 @@ void List::insert(int posicion, Person persona){
 	}
 	Node* siguiente = temp->getNext();
 	temp->setNext(new Node(persona));
-	(temp->getNext())->setNext(siguiente);
+	temp= temp->getNext();
+	temp->setNext(siguiente);
 				
 }
 Person List::at(int posicion){
 	Node* temp= head;
-	for(int i=0; i<posicion;i++){
+	for(int i=0; i<=posicion;i++){
 		if(temp->hasNext())
 			temp=temp->getNext();
 		else
 			throw "ERROR! Array Index out of Bound";
 	}
+	return temp->getValue();
 }
 void List::erase(int posicion){
-		
+	Node* temp= head;
+	for(int i=0; i<posicion;i++){
+		temp = temp->getNext();
+	}
+	Node* eliminado= temp->getNext();
+	temp->setNext(eliminado->getNext());			
 }
 void List::concat(List* lista){
 	Node* temp=head;
@@ -50,6 +57,7 @@ void List::concat(List* lista){
 		temp=temp->getNext();
 	}
 	temp->setNext(lista->first());
+	
 }
 int List::find(Person persona){
 	Node* temp= head;
